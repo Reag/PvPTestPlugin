@@ -1,0 +1,8 @@
+name: PvPTestPlugin
+main: com.dgco.pvptest.PvPTestPlugin_Main
+version: 0.0.1
+commands:
+   pvp:
+      description: This is the main command of the PvP Test Plugin
+      usage: /<command> [modifier]
+      permission-message: You don't have <permission> to use this plugin
