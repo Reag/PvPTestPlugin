@@ -44,6 +44,16 @@ public class PvPRoll {
 		dicenum += roll.dicenum;
 		keepnum += roll.keepnum;
 	}
+	public String toString()
+	{
+		String ret = "";
+		
+		ret += dicenum;
+		ret += "k";
+		ret += keepnum;
+		
+		return ret;
+	}
 	public int Resolve()
 	{
 		List<Integer> dice = new ArrayList<Integer>(); //list of rolls
@@ -55,9 +65,6 @@ public class PvPRoll {
 		
 		Collections.sort(dice); // Sort into ascending order
 		
-		
-		
-		
 		int ret = 0; // Result of the dicerolls
 		
 		// Start at the last index, and loop keepnum times from the end
@@ -65,6 +72,11 @@ public class PvPRoll {
 		{
 			ret += dice.get(i);
 		}
+		
+		ret += modifier;
+		
+		if(ret < 0)
+			ret = 0;
 		
 		return ret;
 	}

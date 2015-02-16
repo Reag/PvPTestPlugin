@@ -1,0 +1,5 @@
+package com.dgco.pvptest;
+
+public enum Rings {
+STAMINA, WILLPOWER, REFLEXES, AWARENESS, STRENGTH, PERCEPTION, AGILITY, INTELLIGENCE, VOID
+}

@@ -1,14 +1,15 @@
 package com.dgco.pvptest;
 
 import java.util.HashMap;
-import org.bukkit.entity.Player;
+
+import net.lordofthecraft.arche.interfaces.Persona;
 
 public class PvPDatabase {
 
-	public HashMap<Player, PvPCharacterSheet> sheetlist;
+	public HashMap<Persona, PvPCharacterSheet> sheetlist;
 	
 	public PvPDatabase()
 	{
-		sheetlist = new HashMap<Player, PvPCharacterSheet>();
+		sheetlist = new HashMap<Persona, PvPCharacterSheet>();
 	}
 }

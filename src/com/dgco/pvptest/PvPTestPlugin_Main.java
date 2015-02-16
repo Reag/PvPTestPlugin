@@ -1,5 +1,9 @@
 package com.dgco.pvptest;
 
+import net.lordofthecraft.arche.ArcheCore;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -7,6 +11,7 @@ public class PvPTestPlugin_Main extends JavaPlugin {
 
 	public PvPEventHandler handler;
 	public PvPDatabase database;
+	public ArcheCore core;
 	
 	
 	/*
@@ -16,7 +21,24 @@ public class PvPTestPlugin_Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		
-		getLogger().info("Starting up the PvP Test Plugin"); //Debug output
+		
+		
+		getLogger().info("Starting up the PvP Test Plugin"); //Debug output		
+		try 
+		{
+			Plugin plugin = Bukkit.getPluginManager().getPlugin("ArcheCore");
+			if(plugin instanceof ArcheCore)
+			{
+				core = (ArcheCore) plugin;
+			}
+		} catch (Exception e)
+		{
+			getLogger().info("Error loading ArcheCore, a required dependency. Shutting down.");
+			getLogger().info(e.getLocalizedMessage());
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		}
+		
 		
 		//Setup Database
 		database = new PvPDatabase();
